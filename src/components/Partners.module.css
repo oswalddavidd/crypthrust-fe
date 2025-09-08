@@ -1,27 +1,28 @@
 .partnersContainer {
   width: 100%;
-  padding: 3rem 0;
+  padding: 1.5rem 0;
   position: relative;
   background: transparent;
   overflow: hidden;
 }
 
 .partnersTitle {
-  font-size: 20px !important;
-  line-height: 1rem !important;
-  font-weight: 400 !important;
-  text-align: center !important;
-  margin-bottom: 0.5rem !important;
-  color: rgba(255, 255, 255, 0.8) !important;
-  letter-spacing: 0.01em !important;
-  text-transform: none !important;
-  display: block !important;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 1);
+  letter-spacing: 0.01em;
+  text-transform: none;
+  display: block;
 }
 
 .partnersScroll {
   position: relative;
   width: 100%;
   overflow: hidden;
+  padding: 1rem 0;
 }
 
 .partnersScroll::before,
@@ -31,55 +32,56 @@
   top: 0;
   bottom: 0;
   width: 10%;
-  max-width: 200px;
+  max-width: 150px;
   z-index: 2;
   pointer-events: none;
 }
 
 .partnersScroll::before {
   left: 0;
-  background: linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
 .partnersScroll::after {
   right: 0;
-  background: linear-gradient(270deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(270deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
 .partnersList {
   display: flex;
-  gap: 2rem;
-  animation: scroll 30s linear infinite;
-  width: calc(250px * 10);
-  padding: 2rem 0;
+  gap: 0.5rem;
+  animation: scroll 20s linear infinite;
+  width: calc(280px * 8);
+  padding: 0.5rem 0;
   will-change: transform;
+  align-items: center;
 }
 
 .partnerItem {
   flex-shrink: 0;
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease-out;
+  padding: 0 0.5rem;
+  will-change: transform;
 }
 
 .partnerLogo {
-  height: 5rem;
-  width: 10rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #9ca3af;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 0.5rem;
-  background: rgba(255, 255, 255, 0.03);
+  height: auto;
+  max-height: 6rem;
+  width: auto;
+  object-fit: contain;
   transition: all 0.3s ease;
+  opacity: 0.9;
+  margin: 0 1.5rem;
+  filter: brightness(1.1) contrast(1.1);
 }
 
 .partnerItem:hover {
-  transform: translateY(-5px);
+  transform: scale(1.1);
 }
 
 .partnerItem:hover .partnerLogo {
-  border-color: rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.05);
+  opacity: 1;
+  filter: grayscale(0) brightness(1.2) contrast(1.1);
 }
 
 @keyframes scroll {
@@ -87,18 +89,20 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-250px * 5));
+    transform: translateX(calc(-280px * 5)); /* Updated to match the number of partners */
   }
 }
 
 @media (min-width: 768px) {
   .partnersTitle {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    margin-bottom: 3rem;
   }
   
   .partnersScroll::before,
   .partnersScroll::after {
     width: 15%;
+    max-width: 200px;
   }
 }

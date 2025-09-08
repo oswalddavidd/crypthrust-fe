@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Partners from '../components/Partners';
+import StarryBackground from '../components/StarryBackground';
 
 const Home: React.FC = () => {
   const fadeIn = {
@@ -13,7 +14,8 @@ const Home: React.FC = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center px-4 py-20 text-center">
+      <section className="relative min-h-screen flex items-center justify-center px-4 py-20 text-center overflow-hidden">
+        <StarryBackground />
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial="hidden"
@@ -25,15 +27,15 @@ const Home: React.FC = () => {
               className="text-4xl md:text-6xl font-bold mb-6 text-text-light"
               variants={fadeIn}
             >
-              The Most <span className="text-primary">All in One</span> Powerful Web3 Growth Engine
+              <span className="font-normal">The Most</span> <span className="text-primary font-bold">All in One</span> <span className="font-normal">Powerful Web3 Growth Engine</span>
             </motion.h1>
             
             <motion.p 
-              className="text-xl md:text-2xl text-text-muted mb-12 max-w-3xl mx-auto"
+              className="text-xl md:text-lg text-text-muted mb-12 max-w-3xl mx-auto"
               variants={fadeIn}
               transition={{ delay: 0.2 }}
             >
-              The Most All In One Powerful Web3 Growth Engine
+              Helping Web3 projects scale smarter and faster with an all-in-one hub
             </motion.p>
             
             <motion.div 
@@ -73,7 +75,7 @@ const Home: React.FC = () => {
 
       {/* Features Section */}
       <motion.section 
-        className="py-20 bg-gray-900/50"
+        className="py-20"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -81,7 +83,7 @@ const Home: React.FC = () => {
       >
         <div className="max-w-6xl mx-auto px-4">
           <motion.h2 
-            className="text-3xl md:text-4xl font-bold text-center mb-12 text-text-light"
+            className="text-xl font-reguler text-center mb-12 text-text-light"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -92,19 +94,19 @@ const Home: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                title: 'Secure',
-                description: 'Enterprise-grade security protocols to keep your assets safe',
-                icon: '🔒',
+                title: 'Top Media Access',
+                description: 'Direct exposure through tier 1 finance media in Indonesia',
+                icon: '📰',
               },
               {
-                title: 'Fast',
-                description: 'Lightning-fast transactions with low latency',
-                icon: '⚡',
+                title: 'All-in-One Platform',
+                description: 'Seamlessly integrate media, wallet, and OTC in one place',
+                icon: '🛠️',
               },
               {
-                title: 'Decentralized',
-                description: 'True ownership with decentralized architecture',
-                icon: '🌐',
+                title: 'Trusted Network',
+                description: 'Backed by leading partners, founders, and investors',
+                icon: '🤝',
               },
             ].map((feature, index) => (
               <motion.div
