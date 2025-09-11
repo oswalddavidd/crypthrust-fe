@@ -26,7 +26,7 @@ const Navbar: React.FC = () => {
                 src={logo2} 
                 //src={logo}
                 alt="Crypthrust Logo" 
-                className="h-8 w-auto"
+                className="h-10 w-auto transition-all duration-300 hover:scale-105"
               />
             </Link>
           </div>

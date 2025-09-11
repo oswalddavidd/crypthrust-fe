@@ -95,6 +95,20 @@
   }
 }
 
+/* Media Partners List - Right to Left Animation */
+.mediaPartnersList {
+  animation: scrollReverse 20s linear infinite;
+}
+
+@keyframes scrollReverse {
+  0% {
+    transform: translateX(calc(-280px * 5));
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 @media (min-width: 768px) {
   .partnersTitle {
     font-size: 2rem;

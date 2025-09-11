@@ -45,26 +45,56 @@ const partners: Partner[] = [
 const Partners: React.FC = () => {
   // Duplicate the partners array to create a seamless loop
   const duplicatedPartners = [...partners, ...partners];
+  // Create a copy of partners for media partners (you can replace these with actual media partners)
+  const mediaPartners = [...partners];
+  const duplicatedMediaPartners = [...mediaPartners, ...mediaPartners];
 
   return (
     <div className={styles.partnersContainer}>
-      <div className="max-w-7xl mx-auto px-4 text-center">
-        <h2 className="text-3xl md:text-4xl font-normal text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-text-light via-text-light via-40% to-primary">
-          Crypthrust's Ecosystem
-        </h2>
-        
-        <div className={styles.partnersScroll}>
-          <div className={styles.partnersList}>
-            {duplicatedPartners.map((partner, index) => (
-              <div key={`${partner.name}-${index}`} className={styles.partnerItem}>
-                <img 
-                  src={partner.logo} 
-                  alt={partner.name} 
-                  className={styles.partnerLogo}
-                  style={{ width: partner.width }}
-                />
-              </div>
-            ))}
+      {/* Ecosystem Partners Section */}
+      <div className="py-16">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-normal text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-text-light via-text-light via-40% to-primary">
+            Crypthrust's Ecosystem
+          </h2>
+          
+          <div className={styles.partnersScroll}>
+            <div className={styles.partnersList}>
+              {duplicatedPartners.map((partner, index) => (
+                <div key={`eco-${partner.name}-${index}`} className={styles.partnerItem}>
+                  <img 
+                    src={partner.logo} 
+                    alt={partner.name} 
+                    className={styles.partnerLogo}
+                    style={{ width: partner.width }}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Media Partners Section */}
+      <div className="py-16">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-normal text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-primary via-text-light via-60% to-text-light">
+            Crypthrust's Media Partner
+          </h2>
+          
+          <div className={styles.partnersScroll}>
+            <div className={`${styles.partnersList} ${styles.mediaPartnersList}`}>
+              {duplicatedMediaPartners.map((partner, index) => (
+                <div key={`media-${partner.name}-${index}`} className={styles.partnerItem}>
+                  <img 
+                    src={partner.logo} 
+                    alt={partner.name} 
+                    className={styles.partnerLogo}
+                    style={{ width: partner.width }}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
