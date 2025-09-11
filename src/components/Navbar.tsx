@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import logo from '../assets/images/crypthrust-logo.png';
+import logo2 from '../assets/images/logo2.png';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
   const navLinks = [
+    { name: 'Services', path: '/' },
     { name: 'About Us', path: '/about' },
     { name: 'Wallet', path: '/wallet' },
     { name: 'Portfolio', path: '/portfolio' },
@@ -21,7 +23,8 @@ const Navbar: React.FC = () => {
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center space-x-2">
               <img 
-                src={logo} 
+                src={logo2} 
+                //src={logo}
                 alt="Crypthrust Logo" 
                 className="h-8 w-auto"
               />

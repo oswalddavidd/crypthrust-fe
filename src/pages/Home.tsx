@@ -27,7 +27,7 @@ const Home: React.FC = () => {
               className="text-4xl md:text-6xl font-bold mb-6 text-text-light"
               variants={fadeIn}
             >
-              <span className="font-normal">The Most</span> <span className="text-primary font-bold">All in One</span> <span className="font-normal">Powerful Web3 Growth Engine</span>
+              <span className="font-normal">The Most</span> <span className="text-primary font-bold">All in One</span> <span className="font-normal">Powerful <span className="bg-clip-text text-transparent bg-gradient-to-t from-primary via-primary/60 via-30% to-text-light to-60%">Web3 Growth Engine</span></span>
             </motion.h1>
             
             <motion.p 
@@ -53,7 +53,7 @@ const Home: React.FC = () => {
                 to="/wallet" 
                 className="px-8 py-3 border border-primary text-primary font-medium rounded-lg hover:bg-primary/10 transition-colors"
               >
-                Connect Wallet
+                Contact Us
               </Link>
             </motion.div>
           </motion.div>
@@ -81,9 +81,10 @@ const Home: React.FC = () => {
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4 text-center">
           <motion.h2 
-            className="text-xl font-reguler text-center mb-12 text-text-light"
+            className="text-3xl md:text-4xl font-normal text-center mb-12 
+text-transparent bg-clip-text bg-gradient-to-r from-primary from-1% to-white to-100%"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -91,22 +92,37 @@ const Home: React.FC = () => {
           >
             Why Choose Crypthrust?
           </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                title: 'Top Media Access',
-                description: 'Direct exposure through tier 1 finance media in Indonesia',
+                title: 'Growth Hacking',
+                description: 'Accelerate business growth with innovative strategies for rapid results.',
+                icon: '📈',
+              },
+              {
+                title: 'KOL Marketing',
+                description: 'Utilize KOLs to amplify your brand\'s message and influence in the industry.',
+                icon: '👥',
+              },
+              {
+                title: 'Media Outreach & Publications',
+                description: 'Boost your brand with targeted outreach and key industry publications.',
                 icon: '📰',
               },
               {
-                title: 'All-in-One Platform',
-                description: 'Seamlessly integrate media, wallet, and OTC in one place',
-                icon: '🛠️',
+                title: 'Listing Services',
+                description: 'Provide listing in major tier 1 & tier 2 global exchanges or local Indonesian exchanges.',
+                icon: '📊',
               },
               {
-                title: 'Trusted Network',
-                description: 'Backed by leading partners, founders, and investors',
-                icon: '🤝',
+                title: 'Community Building',
+                description: 'Build a vibrant brand community with effective engagement.',
+                icon: '🌐',
+              },
+              {
+                title: 'OTC Services',
+                description: 'Access secure and efficient over-the-counter trading solutions.',
+                icon: '💱',
               },
             ].map((feature, index) => (
               <motion.div
@@ -115,9 +131,9 @@ const Home: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-gray-800/50 p-6 rounded-xl backdrop-blur-sm hover:bg-gray-800/70 transition-colors"
+                className="bg-gray-800/50 p-6 rounded-xl backdrop-blur-sm hover:bg-gray-800/70 transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-xl"
               >
-                <div className="text-4xl mb-4">{feature.icon}</div>
+                <div className="text-4xl mb-4 text-primary">{feature.icon}</div>
                 <h3 className="text-xl font-semibold mb-2 text-text-light">{feature.title}</h3>
                 <p className="text-text-muted">{feature.description}</p>
               </motion.div>

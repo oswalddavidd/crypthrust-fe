@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/images/crypthrust-logo.png';
+import logo2 from '../assets/images/logo2.png';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -13,7 +14,8 @@ const Footer: React.FC = () => {
           <div className="flex items-center mb-4 md:mb-0">
             <Link to="/" className="flex items-center">
               <img 
-                src={logo} 
+                //src={logo} 
+                src={logo2}
                 alt="Crypthrust Logo" 
                 className="h-8 w-auto"
               />

@@ -48,8 +48,10 @@ const Partners: React.FC = () => {
 
   return (
     <div className={styles.partnersContainer}>
-      <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-xl font-normal text-center mb-12 text-text-light">Crypthrust's Ecosystem</h2>
+      <div className="max-w-7xl mx-auto px-4 text-center">
+        <h2 className="text-3xl md:text-4xl font-normal text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-text-light via-text-light via-40% to-primary">
+          Crypthrust's Ecosystem
+        </h2>
         
         <div className={styles.partnersScroll}>
           <div className={styles.partnersList}>
