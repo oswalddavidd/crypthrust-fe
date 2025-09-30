@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import StarryBackground from '../components/StarryBackground';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -139,9 +140,12 @@ const Services: React.FC = () => {
                 <p className="text-gray-300 text-sm flex-grow">{service.description}</p>
               </div>
               <div className="p-4 bg-white/5 border-t border-white/10">
-                <button className="text-sm font-medium text-primary hover:underline">
-                  Learn more →
-                </button>
+                <Link 
+                  to="/contact" 
+                  className="text-sm font-medium text-primary hover:underline flex items-center justify-between"
+                >
+                  Learn more <span>→</span>
+                </Link>
               </div>
             </ServiceCard>
           ))}
