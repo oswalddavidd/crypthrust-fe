@@ -9,10 +9,10 @@ const Navbar: React.FC = () => {
   const location = useLocation();
 
   const navLinks = [
-    { name: 'Services', path: '/' },
-    { name: 'About Us', path: '/about' },
+    { name: 'Home', path: '/' },
+    { name: 'Services', path: '/services' },
     { name: 'Wallet', path: '/wallet' },
-    { name: 'Portfolio', path: '/portfolio' },
+    { name: 'Contact', path: '/contact' },
   ];
 
   return (

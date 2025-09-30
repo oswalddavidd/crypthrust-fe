@@ -14,8 +14,8 @@ const Footer: React.FC = () => {
           <div className="flex items-center mb-4 md:mb-0">
             <Link to="/" className="flex items-center">
               <img 
-                //src={logo} 
-                src={logo2}
+                src={logo2} 
+                //src={logo}
                 alt="Crypthrust Logo" 
                 className="h-8 w-auto"
               />

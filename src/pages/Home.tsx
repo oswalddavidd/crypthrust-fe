@@ -1,17 +1,51 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import FullPageScroll from '../components/FullPageScroll';
 import Partners from '../components/Partners';
-import StarryBackground from '../components/StarryBackground';
 import TextHighlight from '../components/TextHighlight';
+import StarryBackground from '../components/StarryBackground';
 import Footer from '../components/Footer';
 
 const Home: React.FC = () => {
+  const [activeSection, setActiveSection] = useState(0);
+  const aboutRef = useRef<HTMLDivElement>(null);
   const fadeIn = {
     hidden: { opacity: 0, y: 40 },
     visible: { opacity: 1, y: 0 }
   };
+
+  // Track which section is in view using IntersectionObserver
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Only update if we're not already on this section
+            if (entry.target.id === 'about-section' && activeSection !== 1) {
+              setActiveSection(1);
+            } else if (entry.target.id !== 'about-section' && activeSection !== 0) {
+              setActiveSection(0);
+            }
+          }
+        });
+      },
+      {
+        threshold: 0.5,
+        rootMargin: '0px 0px -50% 0px'
+      }
+    );
+
+    if (aboutRef.current) {
+      observer.observe(aboutRef.current);
+    }
+
+    return () => {
+      if (aboutRef.current) {
+        observer.unobserve(aboutRef.current);
+      }
+    };
+  }, []);
 
   return (
     <FullPageScroll>
@@ -77,15 +111,21 @@ const Home: React.FC = () => {
       </div>
 
       {/* About Us Section */}
-      <div className="relative min-h-screen flex items-center justify-center px-4 md:px-12 lg:px-24" id="about-section">
+      <section 
+        ref={aboutRef}
+        className="relative min-h-screen flex items-center justify-center px-4 md:px-12 lg:px-24" 
+        id="about-section"
+        data-section="about"
+      >
         <div className="relative z-10 w-full max-w-5xl mx-auto">
           <TextHighlight 
-            text={`At Crypthrust, we're revolutionizing the way Web3 projects grow and scale. Our comprehensive suite of tools and services provides everything you need to succeed in the decentralized world. We combine cutting-edge technology with deep industry expertise to deliver results that matter.`}
-            className="text-3xl md:text-5xl lg:text-6xl leading-tight font-light tracking-tight"
+            text={`Crypthrust was founded by marketing and sales experts with over 7 years of experience. We have extensive marketing, sales, and business development experience at leading global cryptocurrency exchanges and Web3 projects. We have a strong presence in the Southeast Asian and Indonesian markets, and we know exactly what works`}
+            className="text-highlight text-3xl md:text-5xl lg:text-6xl leading-tight font-light tracking-tight"
             id="about-text"
+            active={activeSection === 1}
           />
         </div>
-      </div>
+      </section>
 
       {/* Why Choose Crypthrust Section with Footer */}
       <div className="min-h-screen flex flex-col">
